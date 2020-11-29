@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h1 class="mb-4 display-4 bg-info" style="border-radius: 18px; text-align: center;">News Articles</h1>
+    <a href="/dashboard/home/articles/new" class="btn btn-success">New News Article</a>
+    <a href="/users/logout" class="btn btn-warning">Logout</a>
+
+    <% articles.forEach(article => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+          <a href="/dashboard/home/articles/<%= article.slug %>" class="btn btn-primary">Read More...</a>
+        
+        <form class="d-inline" action="/dashboard/home/articles/<%= article.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        </div>       
+      </div>
+    <% }) %>
+  </div>

@@ -1,0 +1,12 @@
+<div class="container mt-4 bg-light" style="padding: 18px;border-radius: 18px;">
+    <h1 class="mb-4"><%= article.title %></h1>
+    <div class="text-muted mb-2">
+        <%= article.createdAt.toLocaleDateString() %>
+    </div>
+    <a href="/dashboard/home" class="btn btn-secondary">All Articles</a>
+    <a href="/dashboard/home/articles/edit/<%= article.id %>" class="btn btn-primary">Edit</a>
+
+    <div>
+        <%- article.sanitizedHtml %>
+    </div>
+</div>
